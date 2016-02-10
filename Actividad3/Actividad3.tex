@@ -1,0 +1,186 @@
+\documentclass[a4paper]{article}
+\usepackage[english]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{graphicx}
+\usepackage[colorinlistoftodos]{todonotes}
+\graphicspath{{images/}}
+\usepackage{wrapfig}
+\usepackage{float}
+\usepackage{parskip}
+\usepackage{fancyhdr}
+\usepackage{multicol}
+\usepackage{vmargin}
+\usepackage{hyperref}
+\usepackage{url}
+
+
+
+
+\title{Actividad 3: Interpolación}
+
+\author{Paulina Valenzuela Coronado}
+
+\date{\today}
+
+\begin{document}
+\maketitle
+
+\section{Introducción}
+En la mayoría de los fenómenos de la naturaleza observamos una cierta regularidad en la forma de producirse, esto nos permite sacar conclusiones de la marcha de un fenómeno en situaciones que no hemos medido directamente. La \textbf{interpolación} consiste en hallar un dato dentro de un intervalo en el que conocemos los valores en los extremos.\cite{P}
+La idea de la interpolación es poder estimar $f(x)$ para un $x$  arbitrario, apartir de la construcción de una curva o
+superficie que une los puntos donde se han realizado las mediciones y cuyo valor si se conoce.\cite{A}
+En esta actividad se aprendió el proceso de encontrar una función que interpole todos los puntos, apoyados en la función $scipy.interpolate$ de Python.
+El módulo $scipy.interpolate$ es útil para ajustar una función a partir de datos experimental y evaluar los puntos que se requieren. El módulo se basa en $FITPACK$ Fortran subroutines del proyecto $netlib$.\cite{U}
+
+
+\section{Programas}
+
+Se realizó una serie de programas para interpolar con $n$ números aleatorios entre un rango determinado, una función $f(x)$.
+
+\begin{itemize}
+\item \textbf{Programa 1} \\ 
+\begin{verbatim}
+import numpy as np
+import matplotlibplot as plt.py
+from scipy.interpolate import interp1d
+
+xn = np.random.random(10)
+x0 = xn*3
+y0 = sin(2*x0)
+
+plt.plot(x0, y0, 'o', label='Data')
+
+x = np.linspace(min(x0), max(x0), 101)
+
+options = ('linear', 'quadratic', 'cubic')
+
+for o in options:
+f = inyrtp1d(x0, y0, kind=o)
+plt.plot(8x, f(x), label=o)
+
+plt.legend()
+plt.show()
+
+\end{verbatim}
+
+
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[height=9cm]{b.jpg}
+\end{figure}
+
+\item \textbf{Programa 2} \\
+\begin{verbatim}
+import numpy as np
+import matplotlibplot as plt.py
+from scipy.interpolate import interp1d
+
+xn = np.random.random(20)
+x0 = (x.-(0.5))*20
+y0 = (sin(x0))}/x0
+
+plt.plot(x0, y0, 'o', label='Data')
+
+x = np.linspace(min(x0), max(x0), 101)
+
+options = ('linear', 'quadratic', 'cubic')
+
+for o in options:
+f = inyrtp1d(x0, y0, kind=o)
+plt.plot(8x, f(x), label=o)
+
+plt.legend()
+plt.show()
+
+\end{verbatim}
+
+
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[height=9cm]{d.jpg}
+\end{figure}
+
+\item \textbf{Programa 3} \\
+\begin{verbatim}
+import numpy as np
+import matplotlibplot as plt.py
+from scipy.interpolate import interp1d
+
+xn = np.random.random(16)
+x0 = (xn-(0.5))*6
+y0 = ((x0)**2)*(sin(2*x0))
+
+plt.plot(x0, y0, 'o', label='Data')
+
+x = np.linspace(min(x0), max(x0), 101)
+
+options = ('linear', 'quadratic', 'cubic')
+
+for o in options:
+f = inyrtp1d(x0, y0, kind=o)
+plt.plot(8x, f(x), label=o)
+
+plt.legend()
+plt.show()
+
+\end{verbatim}
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[height=9cm]{c.jpg}
+\end{figure}
+
+\item \textbf{Programa 4} \\
+
+\begin{verbatim}
+import numpy as np
+import matplotlibplot as plt.py
+from scipy.interpolate import interp1d
+
+xn = np.random.random(12)
+x0 = (xn-(0.5))*4
+y0 = ((x0)**3)*(sin(3*x0))
+
+plt.plot(x0, y0, 'o', label='Data')
+
+x = np.linspace(min(x0), max(x0), 101)
+
+options = ('linear', 'quadratic', 'cubic')
+
+for o in options:
+f = inyrtp1d(x0, y0, kind=o)
+plt.plot(8x, f(x), label=o)
+
+plt.legend()
+plt.show()
+
+\end{verbatim}
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[height=9cm]{a.jpg}
+\end{figure}
+
+
+\end{itemize}
+
+
+\begin{thebibliography}{99}
+	\bibitem{P} \textsc{Interpolación}
+	\emph {}
+	\url{http://wwwprof.uniandes.edu.co/~gprieto/classes/compufis/interpolacion.pdf}
+	
+		\bibitem{A} \textsc{Interpolación}
+		\emph {}
+		\url{http://carmesimatematic.webcindario.com/interpolacion%20lineal.htm}
+	
+	\bibitem{U} \textsc{Interpolación en Spicy}
+	\emph {}
+	\url{http://claudiovz.github.io/scipy-lecture-notes-ES/intro/scipy.html#interpolacion-scipy-interpolate}
+	
+\end{thebibliography}
+
+\end{document}
